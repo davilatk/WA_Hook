@@ -16,7 +16,7 @@ const request = require("request"),
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(3001, () => console.log("webhook is listening"));
+app.listen(2020, () => console.log("webhook is listening"));
 
 // Accepts POST requests at /webhook endpoint
 app.post("/webhook", (req, res) => {
@@ -34,6 +34,8 @@ app.post("/webhook", (req, res) => {
     res.sendStatus(404);
   }
 });
+
+app.get("/",(req, res)=>{ res.sendStatus(200) })
 
 // Accepts GET requests at the /webhook endpoint. You need this URL to setup webhook initially.
 app.get("/webhook", (req, res) => {
